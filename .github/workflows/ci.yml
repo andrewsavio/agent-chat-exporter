@@ -1,0 +1,23 @@
+name: CI
+
+permissions:
+  contents: read
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate extension manifest
+        run: node -e 'JSON.parse(require("fs").readFileSync("extension/manifest.json", "utf8"))'
+      - name: Syntax check JavaScript
+        run: |
+          for file in src/*.js extension/*.js bookmarklet/*.js tests/*.js; do
+            node --check "$file"
+          done
+      - name: Run tests
+        run: node --test

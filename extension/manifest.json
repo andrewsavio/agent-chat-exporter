@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "agent-chat-exporter",
+  "description": "Export web-based AI agent conversations as clean Markdown.",
+  "version": "1.0.0",
+  "permissions": ["activeTab", "scripting", "clipboardWrite", "downloads"],
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_title": "Agent Chat Exporter",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
