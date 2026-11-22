@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Arena.ai Chat to Markdown (.md) Exporter",
+  "version": "1.0.0",
+  "description": "One-click tool to extract and download entire Arena.ai / LMArena chat conversations as clean Markdown (.md) files.",
+  "permissions": ["activeTab", "scripting"],
+  "action": {
+    "default_title": "Export Arena.ai Chat to .MD"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}
